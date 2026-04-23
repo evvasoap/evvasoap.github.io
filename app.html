@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adventure Picker — Evva Kreitlein</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #4a3728 0%, #7c3d52 50%, #c4706a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    nav {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    nav a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    nav a:hover { color: white; }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 {
+      font-family: 'Abril Fatface', serif;
+      color: #7c3d52;
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: #888;
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+
+    /* QUESTIONS */
+    .question-block { margin-bottom: 24px; }
+    .question-block label {
+      display: block;
+      font-weight: 700;
+      color: #4a3728;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .option-btn {
+      background: #faf6f1;
+      border: 2px solid #e8c4b8;
+      border-radius: 10px;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: #4a3728;
+      transition: all 0.2s;
+      text-align: left;
+    }
+    .option-btn:hover { border-color: #7c3d52; background: #f2ebe0; }
+    .option-btn.selected { background: #7c3d52; color: white; border-color: #7c3d52; }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #7c3d52, #c4706a);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 40px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      transition: transform 0.2s;
+    }
+    .submit-btn:hover { transform: scale(1.02); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    /* RESULT */
+    .result-box {
+      display: none;
+      background: #faf6f1;
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 24px;
+      border-left: 4px solid #7c3d52;
+    }
+    .result-box h3 {
+      color: #7c3d52;
+      font-family: 'Abril Fatface', serif;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .result-box p { color: #4a4a4a; line-height: 1.7; }
+    .loading { color: #888; font-style: italic; }
+
+    .reset-btn {
+      background: none;
+      border: 2px solid #7c3d52;
+      color: #7c3d52;
+      border-radius: 30px;
+      padding: 10px 30px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: all 0.2s;
+    }
+    .reset-btn:hover { background: #7c3d52; color: white; }
+
+    .emoji-big { font-size: 2rem; margin-bottom: 8px; display: block; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← Home</a>
+  <a href="resume.html">Résumé</a>
+  <a href="scratch.html">Adventure Log</a>
+</nav>
+
+<div class="card">
+  <h1>🌍 Adventure Picker</h1>
+  <p class="subtitle">Answer 4 quick questions and I'll find your perfect next adventure!</p>
+
+  <div id="quiz">
+    <div class="question-block">
+      <label>1. What's your ideal travel vibe?</label>
+      <div class="options">
+        <button class="option-btn" onclick="select(this, 'vibe', 'nature')">🌲 Nature & wilderness</button>
+        <button class="option-btn" onclick="select(this, 'vibe', 'culture')">🏛️ Culture & history</button>
+        <button class="option-btn" onclick="select(this, 'vibe', 'adventure')">🧗 Thrills & adventure</button>
+        <button class="option-btn" onclick="select(this, 'vibe', 'relax')">🌊 Relax & recharge</button>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <label>2. How far do you want to go?</label>
+      <div class="options">
+        <button class="option-btn" onclick="select(this, 'distance', 'local')">🏠 Close to home</button>
+        <button class="option-btn" onclick="select(this, 'distance', 'road')">🚗 Road trip distance</button>
+        <button class="option-btn" onclick="select(this, 'distance', 'domestic')">✈️ Domestic flight</button>
+        <button class="option-btn" onclick="select(this, 'distance', 'international')">🌐 International!</button>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <label>3. Who are you traveling with?</label>
+      <div class="options">
+        <button class="option-btn" onclick="select(this, 'group', 'solo')">🧍 Solo adventure</button>
+        <button class="option-btn" onclick="select(this, 'group', 'partner')">💑 Partner</button>
+        <button class="option-btn" onclick="select(this, 'group', 'friends')">👯 Squad of friends</button>
+        <button class="option-btn" onclick="select(this, 'group', 'family')">👨‍👩‍👧 Family</button>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <label>4. What's your budget vibe?</label>
+      <div class="options">
+        <button class="option-btn" onclick="select(this, 'budget', 'shoestring')">💸 Shoestring budget</button>
+        <button class="option-btn" onclick="select(this, 'budget', 'moderate')">💰 Moderate spend</button>
+        <button class="option-btn" onclick="select(this, 'budget', 'splurge')">💎 Worth the splurge</button>
+        <button class="option-btn" onclick="select(this, 'budget', 'flexible')">🤷 Flexible!</button>
+      </div>
+    </div>
+
+    <button class="submit-btn" id="submitBtn" onclick="getRecommendation()" disabled>
+      Find My Adventure! 🗺️
+    </button>
+  </div>
+
+  <div class="result-box" id="resultBox">
+    <span class="emoji-big" id="resultEmoji">🌍</span>
+    <h3 id="resultTitle">Your Adventure Awaits!</h3>
+    <p id="resultText"></p>
+    <button class="reset-btn" onclick="resetQuiz()">Try Again ↺</button>
+  </div>
+</div>
+
+<script>
+  const answers = { vibe: null, distance: null, group: null, budget: null };
+
+  function select(btn, category, value) {
+    // Deselect others in same group
+    const siblings = btn.parentElement.querySelectorAll('.option-btn');
+    siblings.forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    answers[category] = value;
+
+    // Enable submit if all answered
+    if (answers.vibe && answers.distance && answers.group && answers.budget) {
+      document.getElementById('submitBtn').disabled = false;
+    }
+  }
+
+  async function getRecommendation() {
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Finding your adventure...';
+
+    const resultBox = document.getElementById('resultBox');
+    resultBox.style.display = 'block';
+    document.getElementById('resultText').innerHTML = '<span class="loading">✨ Thinking of the perfect adventure for you...</span>';
+    document.getElementById('resultTitle').textContent = 'One moment...';
+    document.getElementById('resultEmoji').textContent = '🔮';
+
+    const prompt = `You are a fun, enthusiastic travel advisor. Based on these preferences, recommend ONE specific adventure destination or experience. Be creative, specific, and exciting!
+
+Travel preferences:
+- Vibe: ${answers.vibe}
+- Distance willing to travel: ${answers.distance}
+- Traveling with: ${answers.group}
+- Budget: ${answers.budget}
+
+Give your response in this exact format:
+EMOJI: (one relevant emoji)
+DESTINATION: (name of the place or experience, max 8 words)
+DESCRIPTION: (3-4 sentences about why this is perfect for them, what to do there, and one insider tip. Be warm, fun and enthusiastic!)`;
+
+    try {
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 1000,
+          messages: [{ role: "user", content: prompt }]
+        })
+      });
+
+      const data = await response.json();
+      const text = data.content[0].text;
+
+      // Parse response
+      const emojiMatch = text.match(/EMOJI:\s*(.+)/);
+      const destMatch = text.match(/DESTINATION:\s*(.+)/);
+      const descMatch = text.match(/DESCRIPTION:\s*([\s\S]+)/);
+
+      document.getElementById('resultEmoji').textContent = emojiMatch ? emojiMatch[1].trim() : '🌍';
+      document.getElementById('resultTitle').textContent = destMatch ? destMatch[1].trim() : 'Your Perfect Adventure!';
+      document.getElementById('resultText').textContent = descMatch ? descMatch[1].trim() : text;
+
+    } catch (error) {
+      document.getElementById('resultEmoji').textContent = '🌄';
+      document.getElementById('resultTitle').textContent = 'Adventure Suggestion!';
+      document.getElementById('resultText').textContent = 'Based on your answers, try exploring a nearby national park for a nature-filled weekend getaway with stunning views and unforgettable memories!';
+    }
+
+    btn.textContent = 'Find My Adventure! 🗺️';
+  }
+
+  function resetQuiz() {
+    Object.keys(answers).forEach(k => answers[k] = null);
+    document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    document.getElementById('submitBtn').disabled = true;
+    document.getElementById('submitBtn').textContent = 'Find My Adventure! 🗺️';
+    document.getElementById('resultBox').style.display = 'none';
+  }
+</script>
+</body>
+</html>
