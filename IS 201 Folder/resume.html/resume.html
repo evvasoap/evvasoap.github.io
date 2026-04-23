@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Résumé — Evva Kreitlein</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
+  <style>
+    :root {
+      --cream: #faf6f1;
+      --blush: #e8c4b8;
+      --wine: #7c3d52;
+      --sage: #8a9e8a;
+      --charcoal: #2e2e2e;
+    }
+    body { font-family: 'Lato', sans-serif; background-color: var(--cream); color: var(--charcoal); }
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+    .navbar { background-color: var(--wine) !important; }
+    .navbar-brand, .nav-link { color: #fff !important; font-family: 'Playfair Display', serif; }
+    .nav-link:hover { color: var(--blush) !important; }
+
+    .resume-header {
+      background: linear-gradient(135deg, var(--wine), #a5556a);
+      color: white;
+      padding: 60px 0 40px;
+    }
+    .section-title {
+      color: var(--wine);
+      font-size: 1.4rem;
+      border-bottom: 2px solid var(--blush);
+      padding-bottom: 6px;
+      margin-bottom: 1.2rem;
+    }
+    .resume-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border-left: 4px solid var(--wine);
+    }
+    .job-title { font-weight: 700; color: var(--wine); font-size: 1.05rem; }
+    .job-date { color: var(--sage); font-size: 0.88rem; font-style: italic; }
+    .skill-badge {
+      background-color: var(--blush);
+      color: var(--charcoal);
+      border-radius: 20px;
+      padding: 5px 14px;
+      display: inline-block;
+      margin: 4px;
+      font-size: 0.88rem;
+    }
+    footer { background-color: var(--wine); color: #fff; padding: 30px 0; }
+    footer a { color: var(--blush); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Evva Kreitlein</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="resume.html">Résumé</a></li>
+        <li class="nav-item"><a class="nav-link" href="scratch.html">Adventure Log</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="resume-header text-center">
+  <h1>Evva Kreitlein</h1>
+  <p class="mb-1" style="opacity:0.9;">Provo, UT &nbsp;|&nbsp; (775) 686-4258 &nbsp;|&nbsp; evvasophia@gmail.com</p>
+  <p style="opacity:0.8; font-size:0.95rem;">English Major · Business Minor · BYU Class of 2026</p>
+</div>
+
+<div class="container py-5">
+  <div class="row g-5">
+
+    <!-- LEFT COLUMN -->
+    <div class="col-lg-8">
+
+      <!-- EXPERIENCE -->
+      <h2 class="section-title"><i class="bi bi-briefcase-fill me-2"></i>Experience</h2>
+
+      <div class="resume-card">
+        <div class="d-flex justify-content-between flex-wrap">
+          <span class="job-title">Los Hermanos — Waitress</span>
+          <span class="job-date">June 2024 – December 2024</span>
+        </div>
+        <ul class="mt-2 mb-0">
+          <li>Served customers efficiently while providing personalized recommendations and answering questions</li>
+          <li>Promoted to Lead Server, assisting with coworker management and supporting managers</li>
+          <li>Helped the restaurant run smoothly on busy weekend nights, accommodating walk-ins and reservations</li>
+        </ul>
+      </div>
+
+      <div class="resume-card">
+        <div class="d-flex justify-content-between flex-wrap">
+          <span class="job-title">Mt Rose Ski Tahoe — Cashier (Seasonal)</span>
+          <span class="job-date">November 2021 – January 2025</span>
+        </div>
+        <ul class="mt-2 mb-0">
+          <li>Advanced through the company over 4 years, trained across all departments with a cash register</li>
+          <li>Managed guest questions and resolved concerns with professionalism</li>
+          <li>Communicated effectively with managers to ensure smooth department operations</li>
+        </ul>
+      </div>
+
+      <div class="resume-card">
+        <div class="d-flex justify-content-between flex-wrap">
+          <span class="job-title">Tidey Ocean — Internship</span>
+          <span class="job-date">September 2023 – December 2023</span>
+        </div>
+        <ul class="mt-2 mb-0">
+          <li>Served as Social Media Manager and Outreach Coordinator for an ocean conservation nonprofit</li>
+          <li>Created weekly content posted online to expand social media reach and environmental impact</li>
+          <li>Collaborated directly with the CEO to align content with organizational goals and brand standards</li>
+        </ul>
+      </div>
+
+      <div class="resume-card">
+        <div class="d-flex justify-content-between flex-wrap">
+          <span class="job-title">Longboards Pizza — Restaurant Crew Member</span>
+          <span class="job-date">June 2023 – September 2023</span>
+        </div>
+        <ul class="mt-2 mb-0">
+          <li>Prepped ingredients, made pizzas, cashiered, cleared dishes, and served guests</li>
+          <li>Worked both front and back of house, filling in wherever needed</li>
+          <li>Helped get the store up and running before leaving for the school year</li>
+        </ul>
+      </div>
+
+      <!-- PORTFOLIO -->
+      <h2 class="section-title mt-4"><i class="bi bi-star-fill me-2"></i>Portfolio Highlights</h2>
+      <div class="resume-card">
+        <ul class="mb-0">
+          <li><strong>Tidey Ocean Instagram Campaign</strong> — Reels and posts on ocean plastic pollution and Black Friday waste statistics</li>
+          <li><strong>Scientific Research Article</strong> — "Expanding the Life-Spans of Space Junk" covering TMR machine systems and BYU aerospace research</li>
+          <li><strong>Health/Medicine Explainer</strong> — Menopause awareness infographic designed to educate and destigmatize women's health topics</li>
+          <li><strong>Student Infographic</strong> — Guide on alternative textbook purchasing strategies for BYU students</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col-lg-4">
+
+      <!-- EDUCATION -->
+      <h2 class="section-title"><i class="bi bi-mortarboard-fill me-2"></i>Education</h2>
+
+      <div class="resume-card">
+        <div class="job-title">Brigham Young University</div>
+        <div>Provo, UT</div>
+        <div class="job-date">September 2023 – 2026</div>
+        <p class="mt-2 mb-0">B.A. in English — Professional Writing Focus<br/>Minor in Business</p>
+      </div>
+
+      <div class="resume-card">
+        <div class="job-title">Truckee Meadows Community College</div>
+        <div>Reno, NV</div>
+        <div class="job-date">January 2021 – May 2023</div>
+        <p class="mt-2 mb-0">Associate of Science</p>
+      </div>
+
+      <!-- SKILLS -->
+      <h2 class="section-title mt-4"><i class="bi bi-tools me-2"></i>Skills</h2>
+      <div class="resume-card">
+        <span class="skill-badge">Customer Service</span>
+        <span class="skill-badge">Effective Communication</span>
+        <span class="skill-badge">Content Creation</span>
+        <span class="skill-badge">Social Media Management</span>
+        <span class="skill-badge">Professional Writing</span>
+        <span class="skill-badge">Problem-Solving</span>
+        <span class="skill-badge">Time Management</span>
+        <span class="skill-badge">Team Leadership</span>
+        <span class="skill-badge">Money Management</span>
+        <span class="skill-badge">Continuous Learning</span>
+      </div>
+
+      <!-- INTERESTS -->
+      <h2 class="section-title mt-4"><i class="bi bi-heart-fill me-2"></i>Interests & Goals</h2>
+      <div class="resume-card">
+        <ul class="mb-0">
+          <li>Women's Rights & World Politics</li>
+          <li>Work at NATO Headquarters</li>
+          <li>Write for a Magazine</li>
+          <li>Become EMT Certified</li>
+          <li>Write Children's Books</li>
+          <li>Document my Grandfather's Garden</li>
+          <li>Crafting & Community Building</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="text-center">
+  <div class="container">
+    <p class="mb-1" style="font-family:'Playfair Display',serif;">Evva Kreitlein</p>
+    <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="scratch.html">Adventure Log</a>
+    <p class="mt-3 mb-0" style="opacity:0.6; font-size:0.8rem;">© 2026 Evva Kreitlein</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
